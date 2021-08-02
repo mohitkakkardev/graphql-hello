@@ -1,0 +1,35 @@
+type Query  {
+   test: String
+   studentData(id: String!): Student
+   studentsData: [Student]
+}
+
+type Mutation {
+    createStudent(data: StudentObj): Student
+    updateStudent(id: String!, data: StudentObj): Student
+}
+
+input StudentObj {
+    firstName: String
+    lastName: String
+    email: String
+    password: String
+    collegeId: String
+}
+
+type Student {
+    id: String!
+    firstName:String!
+    lastName:String
+    email: String!
+    password: String
+    collegeId: String
+    college: College
+}
+
+type College {
+    id: String!
+    name: String!
+    location: String!
+    rating: Float!
+}
