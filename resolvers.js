@@ -37,7 +37,11 @@ const Mutation = {
         var updatedStudentData = {...currentStudent, ...data}
         students.update(updatedStudentData)
         return students.get(studentId)
+    },
+    deleteStudent: (parent, args) => {
+        students.delete(args.id)
+        return 'Record has been deleted!'
     }
 }
  
- module.exports = {Query, Mutation}
+module.exports = {Query, Mutation}
